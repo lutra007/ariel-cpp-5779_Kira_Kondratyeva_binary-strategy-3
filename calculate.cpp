@@ -10,14 +10,23 @@ string calculateBullAndPgia(string choice, string guess) {
 
   for (int i1 = 0; i1 < choice.size(); i1++){
     char c1 = choice[i1];
+    char c2 = guess[i1];
+    if (c1 == c2) {
+        bull++;
+        choice[i1] = 'a';
+        guess[i1] = 'b';
+    }
+  }
+  
+  for (int i1 = 0; i1 < choice.size(); i1++){
+    char c1 = choice[i1];
     for (int i2 = 0; i2 < guess.size(); i2++){
       char c2 = guess[i2];
       if (c1 == c2) {
-        if (i1 == i2) {
-          bull++;
-        } else {
-          pgia++;
-        }
+        pgia++;
+        choice[i1] = 'a';
+        guess[i2] = 'b';
+        break;
       }
     };
   };
