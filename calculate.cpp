@@ -22,20 +22,23 @@ string calculateBullAndPgia(string choice, string guess) {
     };
   };
   
+/*
   cout << "choice: " << choice << "\n";
   cout << "guess: " << guess << "\n";
   cout << "bull: " << bull << "\n";
   cout << "pgia: " << pgia << "\n";
+*/
   
   string result = to_string(bull) + "," + to_string(pgia);
   return result;
 }
 }
 
+/*
 int main() {
   string reply1 = bullpgia::calculateBullAndPgia("5234","1234");
   cout << "Reply: " <<  reply1 << "\n\n";
 
   string reply2 = bullpgia::calculateBullAndPgia("4173","4321");
   cout << "Reply: " <<  reply2 << "\n\n";
-}
+} */
