@@ -5,6 +5,7 @@
 namespace bullpgia {
     class Guesser {
          public:
+         virtual ~Guesser() = default;
          virtual std::string guess() = 0;
 
          int length;
