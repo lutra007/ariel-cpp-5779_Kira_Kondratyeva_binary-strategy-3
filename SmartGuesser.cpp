@@ -1,4 +1,5 @@
 #include "SmartGuesser.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <map>
 
@@ -22,8 +23,8 @@ namespace bullpgia {
 
     std::string SmartGuesser::guess() {
 	std::string r="";
-
-        std::set <std::string> knut_candidates;
+        
+        /* std::set <std::string> knut_candidates;
         int knut_minimax_score = 0;
 
         std::map <std::string,int> record;
@@ -59,8 +60,16 @@ namespace bullpgia {
             } else {
                 r = pick_guess;
             }
+        } */
+        int random_number =  std::rand()/((RAND_MAX + 1u)/candidates.size());
+        int ii = 0;
+        for (const auto& candidate : candidates) {
+            ii++;
+            if (ii == random_number) {
+                r = candidate;
+                break;
+            }
         }
-
         last_guess = r;
 	return r;
     }
