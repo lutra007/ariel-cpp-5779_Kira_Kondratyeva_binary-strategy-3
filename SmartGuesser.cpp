@@ -29,7 +29,7 @@ namespace bullpgia {
         std::map <std::string,int> record;
         int min_score = 0;
         for (const auto& check_guess : all_candidates) {
-            std::cout << check_guess << std::endl;
+            //std::cout << check_guess << std::endl;
             record.clear();
             for (const auto& candidate : candidates) {
                 std::string check = calculateBullAndPgia (candidate, check_guess);
