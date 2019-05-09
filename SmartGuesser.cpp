@@ -12,6 +12,14 @@ namespace bullpgia {
         for (int i=0; i<(len-1); ++i) {
             start *= 10;
         }
+        
+        for (int i = 0; i<start; ++i) {
+            std::string add = std::to_string(i);
+            while (add.length() < length) {
+                add = "0" + add;
+            }
+            candidates.insert(add);
+        }
 
         int end = start*10;
         for (int i = start; i<end; ++i) {
@@ -61,26 +69,31 @@ namespace bullpgia {
                 r = pick_guess;
             }
         } */
-        int random_number =  std::rand()/((RAND_MAX + 1u)/candidates.size());
-        int ii = 0;
+        random_number = (std::rand() % candidates.size());
+        
+        ii = 0;
         for (const auto& candidate : candidates) {
-            ii++;
             if (ii == random_number) {
                 r = candidate;
+                //std::cout << "Chosen: " << r << std::endl;
                 break;
             }
+            ii++;
         }
         last_guess = r;
 	return r;
     }
 
     void SmartGuesser::learn(std::string reply) {
+        //std::cout << "\nLast reply: " << reply << "\n";
         std::set <std::string> candidates_copy = candidates;
         for (const auto& candidate : candidates_copy) {
             std::string check = calculateBullAndPgia (candidate, last_guess);
+            
             if (check != reply) {
                 candidates.erase(candidate);
             }
         }
+        //std::cout << "Reply: " << reply << " Candidates left: " << candidates.size() << std::endl;
     }
 }

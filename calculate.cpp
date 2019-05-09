@@ -8,6 +8,8 @@ string calculateBullAndPgia(string choice, string guess) {
   int bull = 0;
   int pgia = 0;
 
+  //cout << "Choice: " << choice << ", " << "Guess: " << guess;
+  
   for (int i1 = 0; i1 < choice.size(); i1++){
     char c1 = choice[i1];
     char c2 = guess[i1];
@@ -31,14 +33,8 @@ string calculateBullAndPgia(string choice, string guess) {
     };
   };
   
-/*
-  cout << "choice: " << choice << "\n";
-  cout << "guess: " << guess << "\n";
-  cout << "bull: " << bull << "\n";
-  cout << "pgia: " << pgia << "\n";
-*/
-  
   string result = to_string(bull) + "," + to_string(pgia);
+  //cout << ", Result: " << result << "\n";
   return result;
 }
 }
