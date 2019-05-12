@@ -85,12 +85,14 @@ namespace bullpgia {
     }
 
     void SmartGuesser::learn(std::string reply) {
+        int bull, pgia;
+        sscanf(reply.c_str(), "%d,%d", &bull, &pgia);
         //std::cout << "\nLast reply: " << reply << "\n";
         std::set <std::string> candidates_copy = candidates;
         for (const auto& candidate : candidates_copy) {
-            std::string check = calculateBullAndPgia (candidate, last_guess);
+            auto [bull_check, pgia_check] = calculateBullAndPgia2 (candidate, last_guess);
             
-            if (check != reply) {
+            if (bull != bull_check || pgia != pgia_check) {
                 candidates.erase(candidate);
             }
         }

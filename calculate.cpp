@@ -4,7 +4,8 @@
 using namespace std;
 
 namespace bullpgia {
-string calculateBullAndPgia(string choice, string guess) {
+    
+tuple<int, int> calculateBullAndPgia2(string choice, string guess) {
   int bull = 0;
   int pgia = 0;
 
@@ -33,12 +34,15 @@ string calculateBullAndPgia(string choice, string guess) {
     };
   };
   
-  string result = to_string(bull) + "," + to_string(pgia);
-  //cout << ", Result: " << result << "\n";
-  return result;
-}
+  return make_tuple(bull, pgia);
 }
 
+string calculateBullAndPgia(string choice, string guess) {
+    auto [bull, pgia] = calculateBullAndPgia2(choice, guess);
+    return to_string(bull) + "," + to_string(pgia);
+    //cout << ", Result: " << result << "\n";
+    }
+}
 /*
 int main() {
   string reply1 = bullpgia::calculateBullAndPgia("5234","1234");
